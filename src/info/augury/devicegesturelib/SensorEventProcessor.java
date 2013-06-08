@@ -11,7 +11,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.Log;
 
 /**
  * Communicates with Android sensors, reads accelerometer data, filters and 
@@ -55,15 +54,6 @@ class SensorEventProcessor implements ISensorEventProcessor {
 		
 		manager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 		Sensor sensor = manager.getDefaultSensor(SENSOR_TYPE);
-		Log.d(DeviceGestureLibrary.DEBUG_TAG, "Default chosen sensor is "+sensor);
-		for (Sensor sens : manager.getSensorList(SENSOR_TYPE)) {
-			String name = sens.getName();
-			String vendor = sens.getVendor();
-			int version = sens.getVersion();
-			float res = sens.getResolution();
-			float pow = sens.getPower();
-			Log.d(DeviceGestureLibrary.DEBUG_TAG, String.format("%s %s %d %.2f %.2f", name, vendor, version, res, pow));
-		}
 		filter = new AccelerometerFilter(this, CALIBRATIONS_COUNT, ALPHA);
 		manager.registerListener(filter, sensor, SENSOR_RATE);
 	}

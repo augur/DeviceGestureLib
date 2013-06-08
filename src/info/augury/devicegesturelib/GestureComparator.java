@@ -1,12 +1,12 @@
 package info.augury.devicegesturelib;
 
+import static info.augury.devicegesturelib.SensorEventProcessor.FRONT_AXIS;
+import static info.augury.devicegesturelib.SensorEventProcessor.SIDE_AXIS;
+import static info.augury.devicegesturelib.SensorEventProcessor.VERT_AXIS;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import android.util.Log;
-
-import static info.augury.devicegesturelib.SensorEventProcessor.*;
 
 /**
  * Class that collects data from accelerometer, compares it, using multiple {@link IAxisComparator}
@@ -78,7 +78,6 @@ class GestureComparator implements IGestureComparator {
 							failed = true;
 							break;
 						}
-						Log.d("GestureLib", String.format("%2.2f side prox", proximity));
 					}
 					
 					if (frontComparator != null) {
@@ -87,7 +86,6 @@ class GestureComparator implements IGestureComparator {
 							failed = true;
 							break;
 						}
-						Log.d("GestureLib", String.format("%2.2f front prox", proximity));
 					}
 
 					if (vertComparator != null) {
@@ -96,7 +94,6 @@ class GestureComparator implements IGestureComparator {
 							failed = true;
 							break;
 						}
-						Log.d("GestureLib", String.format("%2.2f vert prox", proximity));
 					}
 					
 				} while (false);
