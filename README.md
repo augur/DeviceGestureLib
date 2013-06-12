@@ -87,15 +87,16 @@ Finally, activate gesture detection:
 5) Example
 -------------------------
 Demo application on Google Play: https://play.google.com/store/apps/details?id=info.augury.gesturelibdemo
+
 App usage video on Youtube: https://www.youtube.com/watch?v=8S83_gMkRnY
 
 6) Hints
 -------------------------
-Library can effectively detects very complex gestures, but only on precisely tuned models.
-If your gesture model do not use specific axis, it's highly recommended to set it null.
-If your gesture model have frequent direction shifts, ensure interval between measures is small enough.
-In rare cases, Straight compare mode is preferable rather than default Flattened mode.
-Complex gestures often require lower than average(0.7f) proximity threshold (at least on specific axis).
-Vice versa, common\short gestures require higher than average proximity threshold, to cut off false detection events.
-Often, there are sequence of detection events generated on single gesture - use model's cooldown parameter.
+* Library can effectively detects very complex gestures, but only on precisely tuned models.
+* If your gesture model do not use specific axis, it's highly recommended to set it null.
+* If your gesture model have frequent direction shifts, ensure interval between measures is small enough.
+* In rare cases, Straight compare mode is preferable rather than default Flattened mode.
+* Complex gestures often require lower than average(0.7f) proximity threshold (at least on specific axis).
+* Vice versa, common\short gestures require higher than average proximity threshold, to cut off false detection events.
+* Often, there are sequence of detection events generated on single gesture - use model's cooldown parameter.
   
